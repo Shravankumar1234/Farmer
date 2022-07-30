@@ -23,7 +23,12 @@ app.use(
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        maxAge:1000*60*60*24*365*7,
+        domain:"https://vercel.com/"
+    }
 }))
 
 app.use(cookieParser());
