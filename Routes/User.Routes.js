@@ -37,7 +37,7 @@ userRouter.post("/login", async (req, res) => {
       return res.status(201).send({ message, status });
     }
     return res
-      .cookie("auth", value, { httpOnly: true, secure: false, maxAge:86400000, domain: "https://former-ui1.vercel.app/" })
+      .cookie("auth", value, { httpOnly: true, secure: false })
       .status(200)
       .send({ message, status, value, data });
 });
